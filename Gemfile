@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.6.2'
+ruby '~> 2.6.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -7,6 +7,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.1.0'
+
+gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -64,7 +66,7 @@ end
 
 group :development, :test do
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
 end
 
