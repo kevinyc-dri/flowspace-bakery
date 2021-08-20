@@ -13,4 +13,23 @@ feature 'Home page' do
     expect(page).to have_content 'Welcome'
   end
 
+  # Scenario: Visit the home page logged in
+  scenario 'visit the home page' do
+    user = create_and_signin
+    oven = user.ovens.first
+
+    visit oven_path(oven)
+
+    click_link_or_button 'Prepare Cookie'
+    # fill_in 'Fillings', with: 'Chocolate Chip'
+    click_button 'Mix and bake'
+
+    expect(page).to have_content 'Your Cookie is Ready'
+
+    click_button 'Retrieve Cookie'
+
+    visit root_path
+    expect(page).to have_content 'no fillings'
+  end
+
 end
