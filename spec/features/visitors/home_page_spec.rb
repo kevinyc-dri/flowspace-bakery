@@ -23,6 +23,11 @@ feature 'Home page' do
     click_link_or_button 'Prepare Cookie'
     # fill_in 'Fillings', with: 'Chocolate Chip'
     click_button 'Mix and bake'
+    Cookie.all.each do |cookie| 
+      cookie.bake
+    end
+
+    visit current_url
 
     expect(page).to have_content 'Your Cookie is Ready'
 

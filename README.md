@@ -9,9 +9,9 @@ Development Instructions
 -----------------------
 The following bugs fixes or features need to be completed:
 
-1. Bug: "no fillings" text is never displayed when cookies have no fillings
+1. DONE - Bug: "no fillings" text is never displayed when cookies have no fillings
 
-2. Feature: Cookies should actually be cooked
+2. DONE - Feature: Cookies should actually be cooked
    We lazily added to Cookie: def ready?; true; end
    But, the cookies are not actually ready instantly! When a cookie is placed in the oven, we need to trigger a background cooking worker to cook the cookies and update their state after a couple minutes of "cooking"
 
@@ -35,6 +35,8 @@ The following bugs fixes or features need to be completed:
 
 
 HTTP Auth access: bake / somecookies
+
+Running background jobs: install redis and run `QUEUE=* rails resque:work`
 
 Test Suite
 ----------
